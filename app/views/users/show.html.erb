@@ -1,0 +1,9 @@
+<h1>ユーザー詳細</h1>
+<p><%= notice %></p>
+<hr>
+<p><span>email: </span><%= @user.email %></p>
+
+<% @blogs.each do |blog| %>
+  <hr>
+  <p><span>ツイート内容: </span><%=link_to blog.content, blog_path(blog.id) %></p>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>ブログ一覧</h1>
+<p><%= notice %></p>
+
+<% @blogs.each do |blog| %>
+  <hr>
+  <p><span>email: </span><%= link_to blog.user.email, user_path(blog.user.id) %></p>
+  <p><span>content: </span><%= link_to blog.content, blog_path(blog.id) %>
+  <p><%= link_to "ブログを編集する", edit_blog_path(blog.id) %></p>
+  <p><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></</p>
+<% end %>

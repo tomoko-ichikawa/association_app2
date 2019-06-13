@@ -1,0 +1,7 @@
+<h3>以下の内容で送信する</h3>
+<%= form_with(model: @blog, url:blogs_path,local:true) do |f| %>
+  <%= f.hidden_field :content %>
+
+  <p>content:<%= @blog.content %></p>
+  <%= f.submit %>
+<% end %>
