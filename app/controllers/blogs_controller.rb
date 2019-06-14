@@ -1,14 +1,12 @@
 class BlogsController < ApplicationController
     before_action :authenticate_user!, expect: [:index]
   def new
-      @blog = Blog.new
-      @blog.user_id = current_user.id
-      @user = @blog.user
+      @blog = current_user.blogs.build(blog_params)
+      @user.name
   end
   
   def create
-      @blog = Blog.new(blog_params)
-      @blog.user_id = current_user.id
+      @blog = current_user.blogs.build(blog_params)
       if @blog.save
           redirect_to blogs_path, notice:"ブログを作成しました！"
       end
@@ -46,9 +44,8 @@ class BlogsController < ApplicationController
   end
   
   def confirm
-      @blog = Blog.new(blog_params)
-      @blog.user_id = current_user.id
-      @user = @blog.user
+      @blog = current_user.blogs.build(blog_params)
+      @user.name
   end
   
   private
