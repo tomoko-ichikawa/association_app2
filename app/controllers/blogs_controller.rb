@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
     before_action :authenticate_user!, expect: [:index]
   def new
-      @blog = current_user.blogs.build(blog_params)
-      @user.name
+      @blog = current_user.blogs.build
+      @user = @blog.user
   end
   
   def create
@@ -44,8 +44,8 @@ class BlogsController < ApplicationController
   end
   
   def confirm
-      @blog = current_user.blogs.build(blog_params)
-      @user.name
+      @blog = current_user.blogs.build
+      @user = @blog.user
   end
   
   private
