@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
     before_action :authenticate_user!, expect: [:index]
   def new
       @blog = Blog.new
+      @blog.user_id = current_user.id
       @user = @blog.user
   end
   
