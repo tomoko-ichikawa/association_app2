@@ -2,5 +2,6 @@
 
 <% @users.each do |user| %>
   <hr>
+  <p><span>name: </span><%= link_to user.name, user_path(user.id) %>
   <p><span>email: </span><%= link_to user.email, user_path(user.id) %>
 <% end %>

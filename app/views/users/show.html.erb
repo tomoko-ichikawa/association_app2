@@ -1,6 +1,8 @@
 <h1>ユーザー詳細</h1>
 <p><%= notice %></p>
 <hr>
+
+<p><span>name: </span><%= @user.name %></p>
 <p><span>email: </span><%= @user.email %></p>
 
 <% @blogs.each do |blog| %>
