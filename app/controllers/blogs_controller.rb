@@ -3,10 +3,13 @@ class BlogsController < ApplicationController
   def new
       @blog = current_user.blogs.build
       @user = @blog.user
+      @user.name
   end
   
   def create
       @blog = current_user.blogs.build(blog_params)
+      @user = @blog.user
+      @user.name
       if @blog.save
           redirect_to blogs_path, notice:"ブログを作成しました！"
       end
@@ -38,14 +41,15 @@ class BlogsController < ApplicationController
   
   def destroy
       @blog = Blog.find(params[:id])
-      @user = @blog.user
+      @user  = @blog.user
       @blog.destroy
       redirect_to "/users/#{@user.id}", notice:"ブログを削除しました！"
   end
   
   def confirm
-      @blog = current_user.blogs.build
+      @blog = current_user.blogs.build(blog_params)
       @user = @blog.user
+      @user.name
   end
   
   private
