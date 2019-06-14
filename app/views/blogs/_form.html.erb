@@ -1,0 +1,8 @@
+<%= form_with(model: @blog, local: true ,url: choose_new_or_edit ) do |f| %>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+  <%= f.submit %>
+<% end %>

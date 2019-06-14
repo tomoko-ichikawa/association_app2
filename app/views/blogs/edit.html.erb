@@ -1,8 +1,2 @@
-<%= form_with(model: @blog, local: true ,url: confirm_blogs_path ) do |f| %>
-
-  <p>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </p>
-  <%= f.submit %>
-<% end %>
+<h2>ブログを編集する</h2>
+<%= render 'form' %>
